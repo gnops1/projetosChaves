@@ -5,6 +5,9 @@
  */
 package br.com.ftec.chaves.view;
 
+import br.com.ftec.chaves.model.Sala;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author massirer
@@ -31,16 +34,16 @@ public class CadastrarSala extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbsala = new javax.swing.JLabel();
         lbdescricao = new javax.swing.JLabel();
-        tfdescricao = new javax.swing.JPasswordField();
-        tfsala = new javax.swing.JTextField();
+        txtsala = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnsalvar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lbcapacidade = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
-        tfcapacidade = new javax.swing.JPasswordField();
-        tftipo = new javax.swing.JPasswordField();
+        txtcapacidade = new javax.swing.JTextField();
+        txttipo = new javax.swing.JTextField();
+        txtdescricao = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         mncadastrar = new javax.swing.JMenu();
         mnicolaborador = new javax.swing.JMenuItem();
@@ -60,12 +63,6 @@ public class CadastrarSala extends javax.swing.JFrame {
         lbsala.setText("Sala");
 
         lbdescricao.setText("Descrição");
-
-        tfdescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfdescricaoActionPerformed(evt);
-            }
-        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ftec/chaves/view/Resources/logo_ftec.png"))); // NOI18N
 
@@ -89,18 +86,6 @@ public class CadastrarSala extends javax.swing.JFrame {
 
         lbtipo.setText("Tipo");
 
-        tfcapacidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfcapacidadeActionPerformed(evt);
-            }
-        });
-
-        tftipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tftipoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,11 +107,10 @@ public class CadastrarSala extends javax.swing.JFrame {
                                     .addComponent(lbtipo))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tftipo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfsala)
-                                        .addComponent(tfdescricao)
-                                        .addComponent(tfcapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtsala, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtcapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txttipo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnsalvar)
                                 .addGap(18, 18, 18)
@@ -145,20 +129,20 @@ public class CadastrarSala extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbsala)
-                    .addComponent(tfsala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbdescricao)
-                    .addComponent(tfdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbcapacidade)
-                    .addComponent(tfcapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtcapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbtipo)
-                    .addComponent(tftipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                    .addComponent(txttipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsalvar)
                     .addComponent(btncancelar))
@@ -221,25 +205,26 @@ public class CadastrarSala extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tftipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tftipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tftipoActionPerformed
-
-    private void tfcapacidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcapacidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfcapacidadeActionPerformed
-
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
 
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
-        // TODO add your handling code here:
+        Sala sala = new Sala();
+        sala.setSala(txtsala.getText());
+        sala.setCapacidade(txtcapacidade.getText());
+        sala.setDescricao(txtdescricao.getText());
+        sala.setTipo(txttipo.getText());
+        
+        String mensagem = "Sala: "+sala.getSala()+
+                "\n Capacidade: "+sala.getCapacidade()+
+                "\n Tipo: "+sala.getTipo()+
+                "\n OBS: "+sala.getDescricao()+
+                "\n \n Salvo com sucesso!";
+        
+        JOptionPane.showMessageDialog(this, mensagem);
+        
     }//GEN-LAST:event_btnsalvarActionPerformed
-
-    private void tfdescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdescricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdescricaoActionPerformed
 
     private void mnicolaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnicolaboradorActionPerformed
         CadastrarColab frameColab = new CadastrarColab ();
@@ -313,9 +298,9 @@ public class CadastrarSala extends javax.swing.JFrame {
     private javax.swing.JMenu mncadastrar;
     private javax.swing.JMenuItem mnicolaborador;
     private javax.swing.JMenuItem mnisala;
-    private javax.swing.JPasswordField tfcapacidade;
-    private javax.swing.JPasswordField tfdescricao;
-    private javax.swing.JTextField tfsala;
-    private javax.swing.JPasswordField tftipo;
+    private javax.swing.JTextField txtcapacidade;
+    private javax.swing.JTextField txtdescricao;
+    private javax.swing.JTextField txtsala;
+    private javax.swing.JTextField txttipo;
     // End of variables declaration//GEN-END:variables
 }
